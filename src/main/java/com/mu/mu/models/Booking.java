@@ -13,6 +13,8 @@ public class Booking {
         this.dateTime = dateTime;
     }
 
+    public Booking(){}
+
     public String getCustomerName() {
         return customerName;
     }

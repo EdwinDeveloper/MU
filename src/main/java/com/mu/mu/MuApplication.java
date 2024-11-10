@@ -1,5 +1,6 @@
 package com.mu.mu;
 
+import com.mu.mu.Repositories.BookRepository;
 import com.mu.mu.config.ApplicationConfig;
 import com.mu.mu.controllers.BookingController;
 import io.muserver.Method;
@@ -11,7 +12,7 @@ public class MuApplication {
 	public static void main(String[] args) {
 		BookingController bookingController = new BookingController();
 
-		bookingController.initializeDatabase();
+		BookRepository.initializeDatabase();
 
 		int serverPort = ApplicationConfig.getServerPort();
 
