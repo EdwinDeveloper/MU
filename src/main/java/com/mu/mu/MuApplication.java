@@ -24,6 +24,9 @@ public class MuApplication {
 				.addHandler(Method.GET, "/bookings", (request, response, pathParams) -> {
 					bookingController.handleGetBookings(request, response);
 				})
+				.addHandler(Method.GET, "/health", (request, response, pathParams) -> {
+					bookingController.handleHealth(request, response);
+				})
 				.start();
 
 		System.out.println("Server started at " + server.uri());

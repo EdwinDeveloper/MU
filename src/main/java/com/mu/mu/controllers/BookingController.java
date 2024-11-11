@@ -14,9 +14,17 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 public class BookingController {
     private static List<Booking> bookings = new ArrayList<>();
+
+    public boolean handleHealth(MuRequest request, MuResponse response){
+        response.headers().set("Content-Type", "application/json");
+        response.write("{\"health\": \"ok\"}");
+        response.status(200);
+        return true;
+    }
 
     public boolean handleBookingRequest(MuRequest request, MuResponse response) {
         response.headers().set("Content-Type", "application/json");
@@ -24,9 +32,9 @@ public class BookingController {
             String requestBody = request.readBodyAsString();
             Booking booking = new Gson().fromJson(requestBody, Booking.class);
 
-            BookRepository.saveBookingToDatabase(booking);
-
-            response.write("{\"message\": \"Booking created successfully\"}");
+            Map<String, Object> result = BookRepository.saveBookingToDatabase(booking);
+            response.status((Integer) result.get("code"));
+            response.write(String.format("{\"message\": \"%s\"}", result.get("message")));
             return true;
         } catch (Exception e) {
             response.status(500);
