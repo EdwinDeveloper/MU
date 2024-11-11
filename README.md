@@ -16,6 +16,8 @@ Restaurant Booking Application Setup Guide
         * IntelliJ IDEA (for local setup)
         * PostgreSQL (for local setup)
     
+    ------------------------------------------------------------------------------------------------------------------
+
     Running with Docker
     
         * Build and Run:
@@ -25,6 +27,8 @@ Restaurant Booking Application Setup Guide
     Access:
         
         * Open http://localhost:8086
+
+    ------------------------------------------------------------------------------------------------------------------
 
     Running Locally in IntelliJ
     
@@ -41,6 +45,7 @@ Restaurant Booking Application Setup Guide
         * Access:
             *Visit http://localhost:8082
     
+    ------------------------------------------------------------------------------------------------------------------
 
     Import the Postman Collection
     
